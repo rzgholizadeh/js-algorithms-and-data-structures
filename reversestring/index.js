@@ -7,18 +7,25 @@
 //   reverse('Greetings!') === '!sgniteerG'
 
 function reverse(str) {
+	return str.split("").reduce((reveresed, char) => char + reveresed, "");
+}
+
+module.exports = reverse;
+
+function reverseOne(str) {
+	let reveresed = "";
+	for (let char of str) {
+		reveresed = char + reveresed;
+	}
+	return reveresed;
+}
+function reverseTwo(str) {
 	return str
 		.split("")
 		.reverse()
 		.join("");
 }
 
-module.exports = reverse;
-
-function reverseOne(str) {
-	const reveresed = [];
-	for (let index = str.length - 1; index >= 0; index--) {
-		reveresed.push(str[index]);
-	}
-	return reveresed.join("");
+function reverseThree(str) {
+	return str.split("").reduce((reveresed, char) => char + reveresed, "");
 }
