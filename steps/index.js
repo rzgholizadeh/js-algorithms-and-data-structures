@@ -17,18 +17,24 @@
 //       '### '
 //       '####'
 
-function steps(n) {
-	for (let row = 0; row < n; row++) {
-		let stair = "";
-		for (let column = 0; column < n; column++) {
-			if (column <= row) {
-				stair += "#";
-			}else{
-                stair +=" ";
-            }
-        }
-        console.log(stair);
+function steps(n, row = 0, stair = "") {
+	// base case
+	if (n === row) {
+		return;
 	}
+	// when a row is done
+	if (n === stair.length) {
+		console.log(stair);
+		steps(n, row + 1);
+		return;
+	}
+	// constructing the row
+	if (stair.length <= row) {
+		stair += "#";
+	} else {
+		stair += " ";
+	}
+	steps(n, row, stair);
 }
 
 module.exports = steps;
@@ -48,4 +54,38 @@ function stepGenerator(num, max) {
 		str += " ";
 	}
 	return str;
+}
+
+function stepsTwo(n) {
+	for (let row = 0; row < n; row++) {
+		let stair = "";
+		for (let column = 0; column < n; column++) {
+			if (column <= row) {
+				stair += "#";
+			} else {
+				stair += " ";
+			}
+		}
+		console.log(stair);
+	}
+}
+
+function stepsThree(n, row = 0, stair = "") {
+	// base case
+	if (n === row) {
+		return;
+	}
+	// when a row is done
+	if (n === stair.length) {
+		console.log(stair);
+		steps(n, row + 1);
+		return;
+	}
+	// constructing the row
+	if (stair.length <= row) {
+		stair += "#";
+	} else {
+		stair += " ";
+	}
+	steps(n, row, stair);
 }
