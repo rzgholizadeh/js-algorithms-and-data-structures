@@ -18,21 +18,34 @@
 //       '####'
 
 function steps(n) {
+	for (let row = 0; row < n; row++) {
+		let stair = "";
+		for (let column = 0; column < n; column++) {
+			if (column <= row) {
+				stair += "#";
+			}else{
+                stair +=" ";
+            }
+        }
+        console.log(stair);
+	}
+}
+
+module.exports = steps;
+
+function stepsOne(n) {
 	for (let i = 1; i <= n; i++) {
-        console.log(stepGenerator(i,n));
-        
-    }
+		console.log(stepGenerator(i, n));
+	}
 }
 
 function stepGenerator(num, max) {
 	let str = "";
 	for (let i = 0; i < num; i++) {
 		str += "#";
-    }
-    for(let i = 0;i<max-num;i++){
-        str +=" "
-    }
-    return str;
+	}
+	for (let i = 0; i < max - num; i++) {
+		str += " ";
+	}
+	return str;
 }
-
-module.exports = steps;
