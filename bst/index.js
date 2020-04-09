@@ -33,6 +33,22 @@ class Node {
 			}
 		}
 	}
+
+	contains(data) {
+		if (this.data === data) {
+			return this;
+		}
+		if (data < this.data) {
+			if (this.left) {
+				return this.left.contains(data);
+			}
+		} else if (data > this.data) {
+			if (this.right) {
+				return this.right.contains(data);
+			}
+		}
+		return null;
+	}
 }
 
 module.exports = Node;
