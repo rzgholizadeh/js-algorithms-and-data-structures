@@ -31,6 +31,15 @@ class Tree {
 	constructor() {
 		this.root = null;
 	}
+
+	traverseBF(fn) {
+		let buff = [this.root];
+		while (buff.length) {
+			const node = buff.shift();
+			buff.push(...node.children);
+			fn(node);
+		}
+	}
 }
 
 module.exports = { Tree, Node };
