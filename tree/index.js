@@ -40,6 +40,15 @@ class Tree {
 			fn(node);
 		}
 	}
+
+	traverseDF(fn) {
+		let buff = [this.root];
+		while (buff.length) {
+			const node = buff.shift();
+			buff.unshift(...node.children);
+			fn(node);
+		}
+	}
 }
 
 module.exports = { Tree, Node };
